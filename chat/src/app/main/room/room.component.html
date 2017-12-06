@@ -1,0 +1,39 @@
+<div class="row" style="height:100%">
+  <div class="col-xs-6 col-sm-8" style="height:100%">
+      <div class="card1 msg-container" style="height:calc(100% - 102px)">
+          <chat-message *ngFor="let message of messages" [message]='message'></chat-message>
+      </div>
+      <div class="input-group input-group-lg">
+          <span class="input-group-btn">
+              <button class="btn btn-default" id="emotion-btn" type="button">
+                  <img src="assets/img/emotion_smile.png" style="width:24px;height:24px;">
+              </button>
+          </span>
+          <input type="text" class="form-control" placeholder="请输入聊天内容" [(ngModel)]='message' (keydown)="keyDown($event)">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button" (click)="sendToRoom()">
+                  发送
+                  <span class="glyphicon glyphicon-send"></span>
+              </button>
+          </span>
+      </div>
+  </div>
+  <div class="col-xs-6 col-sm-4" style="height:100%">
+      <div class="card1">
+          <div>
+              <label>注册人数：</label>
+              <label>2</label>
+          </div>
+          <div>
+              <label>在线人数：</label>
+              <label>{{user_list.length}}</label>
+          </div>
+      </div>
+      <div class="card1" style="margin-top:12px">
+          <div>
+              <label>在线列表</label>
+              <div *ngFor='let user of user_list'>{{user.username}}</div>
+          </div>
+      </div>
+  </div>
+</div>

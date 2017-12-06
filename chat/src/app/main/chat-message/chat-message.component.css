@@ -1,0 +1,60 @@
+#icon-head{
+    width: 60px;
+    height:60px;
+    border-radius: 30px;
+    margin-bottom: 8px;
+    float: left;
+    background: rgb(216, 211, 211)
+  }
+
+   .triangle-left{
+     top: 12px;
+     width: 0;
+     border:solid 10px;     
+     height: 0;
+     top: 20px;
+     position: relative;
+     border-color:white #64be5f white white;
+   }
+   /* #64be5f */
+   .msg{
+    max-width: 70%; 
+    background: #64be5f;
+    margin-top:12px;
+    border-radius: 10px;
+    padding: 10px;
+    color: #3f3f3f;
+   }
+
+   .msg-right{
+    max-width: 70%; 
+    background: rgba(80, 155, 224, 0.89);
+    margin-top:12px;
+    border-radius: 10px;
+    padding: 10px;
+    color: #3f3f3f;
+   }
+
+   .triangle-right {
+    width:0;
+    height:0;
+    font-size:0;
+    border:solid 10px;
+    top: 20px;
+    position: relative;
+    border-color:white white white rgba(80, 155, 224, 0.89);
+    }
+
+   .sys-message{
+       text-align: center;
+       margin: 16px;
+   }
+
+   .box{
+     display: flex;
+     flex-direction:row
+   }
+   .box-right{
+    display: flex;
+    flex-direction:row-reverse
+  }

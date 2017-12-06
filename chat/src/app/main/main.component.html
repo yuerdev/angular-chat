@@ -1,0 +1,42 @@
+<!-- 顶部导航 -->
+<nav class="navbar navbar-fixed-top main-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse" #btnToggle>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">QICQ网页版</a>
+        </div>
+        <div class="navbar-collapse collapse" role="navigation" #navigation aria-expanded="false">
+            <ul class="nav navbar-nav navbar-right" >
+                <li *ngIf="currentPath === 'main'">
+                    <a (click)="backToLobby()">个人中心</a>
+                </li>
+                <li *ngIf="currentPath == 'room'">
+                    <a (click)="backToLobby()">返回大厅</a>
+                </li>
+                <li>
+                    <a (click)="logout()">退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- 主体内容区域 -->
+<div class="container main-container " style="height:100%">
+    <router-outlet></router-outlet>
+</div>
+<!-- 底部区域 -->
+<div class="footer" >
+    <div class="container">
+        <div class="row">
+            <p>
+                这是页脚
+                <!-- <a href="https://github.com/blurhkh/DRRR" target="_blank">blurhkh</a> -->
+            </p>
+        </div>
+    </div>
+</div>

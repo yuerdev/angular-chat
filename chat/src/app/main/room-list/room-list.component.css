@@ -1,0 +1,21 @@
+.head{
+    display: flex;
+    width:100px;
+    /* text-align: center; */
+    padding-left:20px; 
+    align-items: center
+}
+.icon-head{
+    width: 60px;
+    height:60px;
+    border-radius: 30px;
+    background: rgb(216, 211, 211)
+}
+
+a{
+    color: #1975d2
+}
+
+input{
+    /* border-radius:4px  */
+}

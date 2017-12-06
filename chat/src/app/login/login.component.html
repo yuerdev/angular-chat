@@ -1,0 +1,60 @@
+<div style="background:rgb(242, 245, 248);width:100%;height:100%">
+  <div class="card" *ngIf="pageType=='login'" [@page]="pageType">
+    <div class='logo'>
+      <h1>登录
+      </h1>
+    </div>
+    <form (ngSubmit)="login(heroForm.value)" #heroForm="ngForm">
+      <div class="form-group">
+        <input name="name" placeholder="用户名" [(ngModel)]="username" minlength="4" required #name="ngModel" />
+      </div>
+      <div class="form-group">
+        <input name="password" placeholder="密码" type="password" class="form-control" [(ngModel)]="password" required />
+      </div>
+      <div *ngIf="name.invalid &&(name.dirty || name.touched)">
+        <div *ngIf="name.errors.required">
+          不能为空
+        </div>
+        <div *ngIf="name.errors.minlength">
+          最短为4
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn" type="submit">登陆</button>
+      </div>
+    </form>
+    <div class="register">
+      <a (click)="pageType='register'">注册</a>
+    </div>
+  </div>
+  <div *ngIf="pageType=='register'" class="card">
+    <div class='logo'>
+      <h1>新用户注册
+      </h1>
+    </div>
+    <form (ngSubmit)="register(heroForm.value)" #heroForm="ngForm">
+      <div class="form-group">
+        <input name="name" placeholder="用户名" [(ngModel)]="username" minlength="4" required #name="ngModel" />
+      </div>
+      <div class="form-group">
+        <input name="password" placeholder="密码" type="password" class="form-control" [(ngModel)]="password" required />
+      </div>
+      <div class="form-group">
+        <input name="confirmPassword" placeholder="确认密码" type="password" class="form-control" [(ngModel)]="password" required />
+      </div>
+
+      <div *ngIf="name.invalid &&(name.dirty || name.touched)">
+        <div *ngIf="name.errors.required">
+          不能为空
+        </div>
+        <div *ngIf="name.errors.minlength">
+          最短为4
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn" type="submit">注册</button>
+      </div>
+    </form>
+  </div>
+
+</div>
