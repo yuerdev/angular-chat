@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   pageType: string = 'login';//页面类型：login／register
 
   ngOnInit() {
+    // this.username=sessionStorage.getItem()
+    // this.password="admin"
   }
   ngOnDestroy(): void {
 
@@ -47,14 +49,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.httpService.httpQuery('login', 'get', {
       data: {
         username: event.name,
-        password: Md5.hashStr(event.password)
+        password: Md5.hashStr(event.pass)
       }
     }).subscribe(res => {
       this.userService.user = res;
       sessionStorage.setItem('user', res.username);
       sessionStorage.setItem('user_id', res.id);
       sessionStorage.setItem('isLogin', 'true');
-
       this.router.navigateByUrl('main');
     });
 

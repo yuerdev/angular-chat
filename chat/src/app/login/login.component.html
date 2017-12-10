@@ -5,22 +5,33 @@
       </h1>
     </div>
     <form (ngSubmit)="login(heroForm.value)" #heroForm="ngForm">
-      <div class="form-group">
-        <input name="name" placeholder="用户名" [(ngModel)]="username" minlength="4" required #name="ngModel" />
+      <div fxLayout="row" fxFlexFill>
+        <label fxFlex="20">用户名</label>
+        <input fxFlex="80" name="name" placeholder="用户名" [(ngModel)]="username" minlength="5" required #name="ngModel" />
+        <span></span>
       </div>
-      <div class="form-group">
-        <input name="password" placeholder="密码" type="password" class="form-control" [(ngModel)]="password" required />
+      <div fxLayout="row" fxFlexFill>
+        <label fxFlex="20">密码</label>
+        <input fxFlex="80" name="pass" placeholder="密码" type="password" [(ngModel)]="password" required #pass="ngModel" />
       </div>
-      <div *ngIf="name.invalid &&(name.dirty || name.touched)">
-        <div *ngIf="name.errors.required">
-          不能为空
-        </div>
-        <div *ngIf="name.errors.minlength">
-          最短为4
-        </div>
+      <div *ngIf="name.invalid &&(name.dirty || name.touched)" class=" alert-danger">
+        <span *ngIf="name.errors.required">
+          用户名不能为空
+        </span>
+        <span *ngIf="name.errors.minlength">
+          用户名最短长度为5
+        </span>
       </div>
-      <div class="form-group">
-        <button class="btn" type="submit">登陆</button>
+      <div *ngIf="pass.invalid &&(pass.dirty || pass.touched)" class=" alert-danger">
+        <span *ngIf="pass.errors.required">
+          密码不能为空
+        </span>
+        <span *ngIf="pass.errors.minlength">
+          密码最短长度为5
+        </span>
+      </div>
+      <div style="margin-top:16px">
+        <button [disabled]="!heroForm.form.valid" class="btn" type="submit">登陆</button>
       </div>
     </form>
     <div class="register">
@@ -33,27 +44,35 @@
       </h1>
     </div>
     <form (ngSubmit)="register(heroForm.value)" #heroForm="ngForm">
-      <div class="form-group">
-        <input name="name" placeholder="用户名" [(ngModel)]="username" minlength="4" required #name="ngModel" />
-      </div>
-      <div class="form-group">
-        <input name="password" placeholder="密码" type="password" class="form-control" [(ngModel)]="password" required />
-      </div>
-      <div class="form-group">
-        <input name="confirmPassword" placeholder="确认密码" type="password" class="form-control" [(ngModel)]="password" required />
+      <div>
+        <div fxLayout="row" fxFlexFill>
+          <label fxFlex="20">用户名</label>
+          <input fxFlex="80" name="name" placeholder="用户名" [(ngModel)]="username" minlength="4" required #name="ngModel" />
+        </div>
+        <div fxLayout="row" fxFlexFill>
+          <label fxFlex="20">密码</label>
+          <input fxFlex="80" name="password" placeholder="密码" type="password" class="form-control" [(ngModel)]="password" required
+          />
+        </div>
+        <div fxLayout="row" fxFlexFill>
+          <label fxFlex="20">确认密码</label>
+          <input fxFlex="80" name="confirmPassword" placeholder="确认密码" type="password" class="form-control" [(ngModel)]="password"
+            required />
+        </div>
+
+        <div *ngIf="name.invalid &&(name.dirty || name.touched)">
+          <div *ngIf="name.errors.required">
+            不能为空
+          </div>
+          <div *ngIf="name.errors.minlength">
+            最短为4
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn" type="submit">注册</button>
+        </div>
       </div>
 
-      <div *ngIf="name.invalid &&(name.dirty || name.touched)">
-        <div *ngIf="name.errors.required">
-          不能为空
-        </div>
-        <div *ngIf="name.errors.minlength">
-          最短为4
-        </div>
-      </div>
-      <div class="form-group">
-        <button class="btn" type="submit">注册</button>
-      </div>
     </form>
   </div>
 

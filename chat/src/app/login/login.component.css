@@ -55,13 +55,15 @@ input{
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    width: 100%;
+    /* width: 100%; */
     background: #f2f4f8;
     height: 1.75rem;
     border: 0;
     padding:0 .5rem;
 }
-
+label{
+    display: inline-block
+}
 
 #confirmDiv {
     width: 200px;
@@ -71,3 +73,13 @@ input{
     left: 200px;
     top: 150px;
 }
+/*  */
+
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; 
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; 
+  }
