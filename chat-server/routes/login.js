@@ -15,6 +15,7 @@ var responseJSON = function (res, ret) {
 
 var db = require('../sqldb');
 var User = db.User;
+db.sequelize.sync();
 router.get('/', function (req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     var param = req.query || req.params;

@@ -12,10 +12,10 @@
         </div>
         <div class="navbar-collapse collapse" role="navigation" #navigation aria-expanded="false">
             <ul class="nav navbar-nav navbar-right" >
-                <li *ngIf="currentPath === 'main'">
+                <li>
                     <a (click)="backToLobby()">个人中心</a>
                 </li>
-                <li *ngIf="currentPath == 'room'">
+                <li >
                     <a (click)="backToLobby()">返回大厅</a>
                 </li>
                 <li>

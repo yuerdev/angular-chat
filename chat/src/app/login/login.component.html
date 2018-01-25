@@ -51,16 +51,16 @@
         </div>
         <div fxLayout="row" fxFlexFill>
           <label fxFlex="20">密码</label>
-          <input fxFlex="80" name="password" placeholder="密码" type="password" class="form-control" [(ngModel)]="password" required
-          />
+          <input fxFlex="80" name="password" placeholder="密码" type="password" class="form-control" [(ngModel)]="password" #passwords="ngModel"
+            required />
         </div>
         <div fxLayout="row" fxFlexFill>
           <label fxFlex="20">确认密码</label>
-          <input fxFlex="80" name="confirmPassword" placeholder="确认密码" type="password" class="form-control" [(ngModel)]="password"
-            required />
+          <input fxFlex="80" name="confirmPassword" placeholder="确认密码" type="password" class="form-control" [(ngModel)]="passwordconfirm"
+            #confirmPassword="ngModel" required />
         </div>
 
-        <div *ngIf="name.invalid &&(name.dirty || name.touched)">
+        <div *ngIf="name.invalid &&(name.dirty || name.touched)" class=" alert-danger">
           <div *ngIf="name.errors.required">
             不能为空
           </div>
@@ -68,8 +68,21 @@
             最短为4
           </div>
         </div>
+        <div *ngIf="passwords.invalid &&(passwords.dirty || passwords.touched)" class=" alert-danger">
+          <div *ngIf="passwords.errors.required">
+            密码不能为空
+          </div>
+        </div>
+        <div *ngIf="confirmPassword.invalid &&(confirmPassword.dirty || confirmPassword.touched)" class=" alert-danger">
+          <div *ngIf="confirmPassword.errors.required">
+            确认密码不能为空
+          </div>
+        </div>
+        <div *ngIf="(confirmPassword.dirty || confirmPassword.touched )&& passwordconfirm!=password" class=" alert-danger">
+          两次输入密码不一致
+        </div>
         <div class="form-group">
-          <button class="btn" type="submit">注册</button>
+          <button class="btn" type="submit" [disabled]="passwordconfirm!=password">注册</button>
         </div>
       </div>
 

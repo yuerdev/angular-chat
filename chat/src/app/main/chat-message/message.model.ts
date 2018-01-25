@@ -29,5 +29,9 @@ export interface Message {
      * 是否为聊天记录
      */
     isChatHistory?: boolean;
+    /**
+     * 发送者id
+     */
+    send_id?:string;
   }
   

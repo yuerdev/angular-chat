@@ -29,6 +29,7 @@ import { HttpService } from '../core/service/http.service';
 export class LoginComponent implements OnInit, OnDestroy {
   username: string;
   password: string;
+  passwordconfirm: string;
   constructor(private router: Router,
     private httpService: HttpService,
     private http: Http,
@@ -61,8 +62,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   }
 
-  register(event:any) {
+  register(event: any) {
     // this.pageType='register';
+    console.info(event);
+    this.httpService.httpQuery('','get').subscribe(res=>{
+
+    });
+  }
+
+  kepUp() {
+
   }
 
   toggle() {

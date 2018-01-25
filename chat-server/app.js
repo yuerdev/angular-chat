@@ -29,12 +29,11 @@ app.use('/user', users);
 app.use('/login', login);
 
 var router = express.Router();
-router.get('/', function(req, res, next) {
-  // res.render('index', { title: 'Expre-ss' });
-  // res.render();
-  console.info('-----');
-  res.sendFile(__dirname+'/public/dist/index.html')
-});
+// router.get('/', function(req, res, next) {
+//   // res.render('index', { title: 'Expre-ss' });
+//   // res.render();
+//   res.sendFile(__dirname+'/public/dist/index.html')
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

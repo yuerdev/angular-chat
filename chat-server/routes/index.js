@@ -3,7 +3,7 @@ var router = express.Router();
 
 var http = require('http').Server(express());
 var io = require('socket.io')(http);
-
+var path =require('path');
 io.on('connection', function (socket) {
     socket.on('chat message', function (msg) {
       console.log('message: ' + msg);
@@ -18,10 +18,7 @@ io.on('connection', function (socket) {
   // let __dirname='../';
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // res.render('index', { title: 'Expre-ss' });
-  // res.render();
-  console.info('-----');
-  res.sendFile(__dirname+'/dist/index.html')
+  res.sendFile(path.resolve(__dirname,'../public/index.html'))
 });
 
 module.exports = router;

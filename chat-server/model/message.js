@@ -30,6 +30,6 @@ module.exports = function(sequelize,DataTypes){
         freezeTableName: true,
          timestamps: false     
     });
-    sequelize.sync();
+    // sequelize.sync();
     return Message;
 };

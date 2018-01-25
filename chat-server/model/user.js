@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         username: {
             type: DataTypes.STRING,
-            unique:true
+            unique: true
         },
         password: {
             type: DataTypes.STRING
@@ -19,11 +19,18 @@ module.exports = function (sequelize, DataTypes) {
         },
         register_date: {
             type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW,
+            defaultValue: DataTypes.NOW
+        },
+        active: {
+            type: DataTypes.INTEGER,
+            defaultValue: 1
         }
-    }, {
+    },
+        {
             freezeTableName: true,
             timestamps: false
         });
+    sequelize.sync();
+
     return User;
 };
