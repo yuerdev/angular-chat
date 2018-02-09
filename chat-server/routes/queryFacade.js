@@ -82,8 +82,6 @@ router.get('/get', function (req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     // var param = req.query || req.params;
 
-
-
     // return db.sequelize.transaction(function (t) {
     //     return User.findOne({
     //         username: param.username,

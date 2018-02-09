@@ -5,12 +5,17 @@ import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
-export class SelectivePreloadingStrategy implements PreloadingStrategy{
+export class SelectivePreloadingStrategy implements PreloadingStrategy {
 
+  /**
+ * 预加载
+ * @param route 
+ * @param load 
+ */
   preload(route: Route, load: () => Observable<any>): Observable<any> {
-    if(route.data&&route.data['preload']){
+    if (route.data && route.data['preload']) {
       return load();
-    }else {
+    } else {
       return Observable.of(null);
     }
   }

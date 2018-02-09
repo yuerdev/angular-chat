@@ -40,7 +40,7 @@
             <label>房间名称</label>
         </div>
         <div class="ui-g-8">
-            <input pInputText style="width:100%" />
+            <input pInputText [(ngModel)]='room.name' style="width:100%" />
         </div>
     </div>
     <div class="ui-g">
@@ -48,7 +48,7 @@
             <label>人数上限</label>
         </div>
         <div class="ui-g-8">
-            <input pInputText type="number" style="width:100%" />
+            <input pInputText type="number" [(ngModel)]='room.upperlimit' style="width:100%" />
         </div>
     </div>
     <div class="ui-g" *ngIf="isPassword">
@@ -56,17 +56,17 @@
             <label>密码</label>
         </div>
         <div class="ui-g-8">
-            <input pInputText type="password" style="width:100%" />
+            <input pInputText type="password" [(ngModel)]='room.password' style="width:100%" />
         </div>
     </div>
     <div class="ui-g">
         <div class="ui-g-6">
-        <p-checkbox [(ngModel)]="isPassword" binary="true"></p-checkbox>
+        <p-checkbox [(ngModel)]="isPassword" [(ngModel)]='room.isPassword' binary="true"></p-checkbox>
         <label>是否加密</label>
         </div>
     </div>
     <p-footer>
-        <button type="button" pButton icon="fa-check" (click)="display=false" label="确认"></button>
-        <button type="button" pButton icon="fa-close" (click)="display=false" label="取消"></button>
+        <button type="button" pButton icon="fa-check" (click)="addRoom()" label="确认"></button>
+        <button type="button" pButton icon="fa-close" (click)="cancel()" label="取消"></button>
     </p-footer>
 </p-dialog>

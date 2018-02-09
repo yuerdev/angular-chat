@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -16,6 +17,7 @@ import { SelectivePreloadingStrategy } from './core/service/selective-preloading
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
+    LoadingBarHttpModule,
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', redirectTo: 'login' },
       { path: 'login', loadChildren: './login/login.module#LoginModule',data:{preload:true}},
